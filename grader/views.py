@@ -1,6 +1,7 @@
 from django.shortcuts import render
 from rest_framework.views import APIView
 from django.http import HttpResponse
+from rest_framework.permissions import AllowAny
 # from grader.models import Assignment
 # Create your views here.
 
@@ -20,6 +21,8 @@ class GroupViewSet(viewsets.ModelViewSet):
     serializer_class = GroupSerializer
 
 class Submission(APIView):
+    permission_classes = (AllowAny,)
+    
     def get(self, request, assignment_name):
         dump_data = {}
         dump_data["assignment"] = assignment_name
