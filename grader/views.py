@@ -22,10 +22,12 @@ class GroupViewSet(viewsets.ModelViewSet):
 
 class Submission(APIView):
     permission_classes = (AllowAny,)
-    
-    def get(self, request, assignment_name):
+
+    def get(self, request):
+
+    #def get(self, request, assignment_name):
         dump_data = {}
-        dump_data["assignment"] = assignment_name
+    #    dump_data["assignment"] = assignment_name
         dump_data["correct"] = True
         dump_data["score"] = 1
         dump_data["msg"] = "<p>The code passed all tests.</p>"
